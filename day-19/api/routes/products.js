@@ -1,18 +1,21 @@
 const express = require('express');
 const router = express.Router();
 
+//handel incoming GET requests to /products 
 router.get('/',(req, res, next) => {
     res.status(200).json({
         message: 'Handling GET request to /products'
     });
 });
 
+//handel incoming POST request to /products
 router.post('/',(req, res, next) => {
     res.status(201).json({
         message: 'Handling POST request to /products'
     });
 });
 
+//handel incoming single product(ID) GET request to /products
 router.get('/:productID', (req, res, next) => {
     const id = req.params.productID;
     if (id === 'special') {
@@ -28,12 +31,14 @@ router.get('/:productID', (req, res, next) => {
     };
 });
 
+//handel incoming PATCH request to /products
 router.patch('/:productID', (req, res, next) => {
     res.status(200).json({
         message: 'Update prouct'  
     });
 });
 
+//handel incoming DELETE request to /products
 router.delete('/:productID', (req, res, next) => {
     res.status(200).json({
         message: 'Deleted prouct'  

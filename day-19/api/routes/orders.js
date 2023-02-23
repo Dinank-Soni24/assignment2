@@ -1,18 +1,21 @@
 const express = require('express');
 const router = express.Router();
 
+//handel incoming GET requests to /orders 
 router.get('/',(req, res, next) => {
     res.status(200).json({
         message: 'order were fetched'
     });
 });
 
+//handel incoming post requests to /orders 
 router.post('/',(req, res, next) => {
     res.status(200).json({
         message: 'order were createed'
     });
 });
 
+//handel incoming single order(ID) GET requests to /orders 
 router.get('/:orderdID',(req, res, next) => {
     res.status(200).json({
         message: 'order details',
@@ -20,6 +23,7 @@ router.get('/:orderdID',(req, res, next) => {
     });
 });
 
+//handel incoming DELETE requests to /orders 
 router.delete('/:orderdID',(req, res, next) => {
     res.status(200).json({
         message: 'order delete',

@@ -9,6 +9,7 @@ const app = express();
 const productRoutes = require('./api/routes/products');
 const orderRoutes = require('./api/routes/orders');
 
+mongoose.set('strictQuery', false);
 mongoose.connect(process.env.PORT_URI, {
     useNewUrlParser: true,
 });

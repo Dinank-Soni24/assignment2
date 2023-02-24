@@ -2,7 +2,7 @@ const express = require('express');
 const morgan = require('morgan');
 const bodyParser = require('body-parser');
 const mongoose = require('mongoose');
-const dotenv = require('dotenv');
+const dotenv = require('dotenv').config();
 
 const app = express();
 
@@ -10,7 +10,7 @@ const productRoutes = require('./api/routes/products');
 const orderRoutes = require('./api/routes/orders');
 
 mongoose.connect(process.env.PORT_URI, {
-    useMongoClient: true
+    useNewUrlParser: true,
 });
 
 //midelware

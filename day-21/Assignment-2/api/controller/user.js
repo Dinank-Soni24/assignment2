@@ -71,7 +71,7 @@ exports.Admin_login = (req, res, next) => {
                             expiresIn: "1h"
                         }
                     )
-                    
+                    res.set('Authorization', `Bearer ${token}`);
                     return res.status(200).json({
                         message: 'auth successful',
                         token: token
@@ -93,7 +93,6 @@ exports.Admin_login = (req, res, next) => {
 //logout admin
 
 exports.Admin_logout = (req, res, next) => {
-    // Remove the token from local storage
     const token = req.headers.authorization.split(" ")[1];
     console.log(token);
     delete req.headers.authorization;

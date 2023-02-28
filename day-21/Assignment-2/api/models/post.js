@@ -7,9 +7,9 @@ const postsSchema = mongoose.Schema({
     categoryId: {type: mongoose.Schema.Types.ObjectId, ref: 'category', required: true},
     title: {type: String, required: true},
     content: {type: String, required: true},
-    publishedDate: {type: Date, required: true},
+    publishedDate: {type: Date, required: true, default: Date.now()},
     createdBy: {type: String, required: true},
-    slug: { type: String, slug: "slug" }
+    slug: { type: String, slug: "content" }
 });
 
 module.exports = mongoose.model('post', postsSchema);

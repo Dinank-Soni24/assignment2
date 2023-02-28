@@ -8,10 +8,12 @@ const postController = require('../controller/post');
 const checkAuth = require('../middleware/check-auth');
 
 //get requerst for all
-router.post('/' , postController.post_create);
-// router.get('/' , );
-// router.get('/:' , );
-// router.patch('/:' , );
-// router.delete('/:' , );
+router.post('/',checkAuth , postController.post_create);
+router.get('/',checkAuth , postController.post_get_all);
+router.get('/:postsId',checkAuth , postController.post_get_one);
+router.patch('/:postsId',checkAuth , postController.post_update);
+router.delete('/:postsId',checkAuth , postController.post_delete);
+
+
 
 module.exports = router;

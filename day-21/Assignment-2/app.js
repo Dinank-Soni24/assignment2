@@ -9,6 +9,7 @@ const app = express();
 const userRoutes = require('./api/routes/user');
 const categoryRoutes = require('./api/routes/category');
 const postsRoutes = require('./api/routes/post')
+const publicRoutes = require('./api/routes/publicPost')
 
 //mongodb connections
 mongoose.set('strictQuery', false);
@@ -24,6 +25,7 @@ app.use(bodyParser.json());
 app.use('/user', userRoutes);
 app.use('/category', categoryRoutes);
 app.use('/post',postsRoutes);
+app.use('/public', publicRoutes);
 
 
 //error handling
